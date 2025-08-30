@@ -1,29 +1,6 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Instagram, Facebook, Twitter, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { t } = useTranslation();
-
-  const footerLinks = {
-    company: [
-      { key: 'about', href: '/about' },
-      { key: 'careers', href: '/careers' },
-      { key: 'press', href: '/press' },
-    ],
-    customerService: [
-      { key: 'contact', href: '/contact' },
-      { key: 'faq', href: '/faq' },
-      { key: 'returns', href: '/returns' },
-      { key: 'shipping', href: '/shipping' },
-    ],
-    legal: [
-      { key: 'privacy', href: '/privacy' },
-      { key: 'terms', href: '/terms' },
-      { key: 'cookies', href: '/cookies' },
-    ],
-  };
-
   return (
     <footer className="footer">
       <div className="container">

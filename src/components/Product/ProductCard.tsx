@@ -51,7 +51,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   const formatPrice = (price: number) => {
     const currency = i18n.language === 'ko' ? '원' : '$';
@@ -65,13 +64,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   const handleImageHover = () => {
     if (product.images.length > 1) {
       setCurrentImageIndex(1);
-      setIsHovered(true);
     }
   };
 
   const handleImageLeave = () => {
     setCurrentImageIndex(0);
-    setIsHovered(false);
   };
 
   return (
