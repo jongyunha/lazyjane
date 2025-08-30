@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Home",
+    "women": "Women",
+    "bags": "Bags",
+    "shoes": "Shoes",
+    "accessories": "Accessories",
+    "sale": "Sale",
+    "cart": "Cart",
+    "search": "Search",
+    "account": "Account"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "size": "Size",
+    "color": "Color",
+    "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total",
+    "currency": "$"
+  },
+  "product": {
+    "description": "Description",
+    "details": "Details",
+    "care": "Care",
+    "composition": "Composition",
+    "moreColors": "More Colors",
+    "related": "Related Items",
+    "reviews": "Reviews",
+    "outOfStock": "Out of Stock",
+    "selectSize": "Select Size",
+    "selectColor": "Select Color"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "continue": "Continue Shopping"
+  },
+  "home": {
+    "hero": {
+      "title": "New Collection",
+      "subtitle": "Discover LazyJane's latest styles",
+      "cta": "View Collection"
+    },
+    "featured": "Featured",
+    "newArrivals": "New Arrivals",
+    "trending": "Trending"
+  }
+}

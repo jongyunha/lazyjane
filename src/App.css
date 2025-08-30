@@ -1,0 +1,140 @@
+/* Home page styles */
+.home {
+  min-height: 100vh;
+}
+
+.home-section {
+  padding: var(--spacing-2xl) 0;
+}
+
+@media (min-width: 768px) {
+  .home-section {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+.home-section:nth-child(even) {
+  background-color: var(--color-gray-100);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-black);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.home-cta {
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-black) 100%);
+  color: var(--color-white);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .home-cta {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+}
+
+.cta-description {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-2xl);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .cta-actions {
+    flex-direction: row;
+    gap: var(--spacing-lg);
+  }
+}
+
+.cta-actions .btn {
+  min-width: 200px;
+}
+
+.cta-actions .btn-outline {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.cta-actions .btn-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .cta-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .cta-description {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Animation for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header,
+.product-grid {
+  animation: fadeInUp 0.6s ease-out;
+}
