@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Search, ShoppingBag, Menu, X, User, Globe } from 'lucide-react';
 
@@ -78,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ cartItemCount = 0 }) => {
               </span>
             </button>
 
-            <button className="action-button cart-button" aria-label="Shopping cart">
+            <Link to="/cart" className="action-button cart-button" aria-label="Shopping cart">
               <div className="cart-icon-wrapper">
                 <ShoppingBag size={18} />
                 {cartItemCount > 0 && (
@@ -88,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ cartItemCount = 0 }) => {
               <span className="action-text hidden sm:inline">
                 {t('navigation.cart')}
               </span>
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Heart, Star } from 'lucide-react';
 import './ProductCard.css';
@@ -74,7 +75,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className="product-card">
       <div className="product-card-header">
-        <div 
+        <Link 
+          to={`/product/${product.id}`}
           className="product-image-container"
           onMouseEnter={handleImageHover}
           onMouseLeave={handleImageLeave}
@@ -114,7 +116,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               {t('common.addToCart')}
             </button>
           </div>
-        </div>
+        </Link>
       </div>
 
       <div className="product-card-content">
@@ -133,9 +135,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         <h3 className="product-name">
-          <a href={`/product/${product.id}`} className="product-link">
+          <Link to={`/product/${product.id}`} className="product-link">
             {product.name}
-          </a>
+          </Link>
         </h3>
 
         <div className="product-rating">
