@@ -8,6 +8,7 @@ import { ProductInfo } from '../components/Product/ProductInfo';
 import { ProductOptions } from '../components/Product/ProductOptions';
 import { ProductActions } from '../components/Product/ProductActions';
 import { Modal } from '../components/Common/Modal';
+import { SEO } from '../components/Common/SEO';
 import { useTranslation } from 'react-i18next';
 import './ProductDetail.css';
 
@@ -15,7 +16,7 @@ export const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { addItem } = useCart();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   
   const product = mockProducts.find(p => p.id === id);
   
@@ -79,6 +80,27 @@ export const ProductDetail: React.FC = () => {
   return (
     <div className="product-detail">
       <div className="container">
+        <SEO
+          title={`${product.name} - LazyJane`}
+          description={product.description}
+          canonical={typeof window !== 'undefined' ? `${window.location.origin}/product/${product.id}` : undefined}
+          ogImage={product.images[0]}
+          structuredData={{
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: product.name,
+            image: product.images,
+            description: product.description,
+            brand: 'LazyJane',
+            offers: {
+              '@type': 'Offer',
+              priceCurrency: 'KRW',
+              price: product.price,
+              availability: 'https://schema.org/InStock',
+              url: typeof window !== 'undefined' ? `${window.location.origin}/product/${product.id}` : undefined
+            }
+          }}
+        />
         <button 
           className="back-button"
           onClick={() => navigate('/')}

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Hero } from '../components/Home/Hero';
 import { ProductGrid } from '../components/Product/ProductGrid';
 import { mockProducts } from '../data/products';
+import { SEO } from '../components/Common/SEO';
 
 export const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -25,6 +26,23 @@ export const Home: React.FC = () => {
 
   return (
     <div className="home">
+      <SEO
+        title="LazyJane - 최신 여성 패션과 액세서리"
+        description="LazyJane에서 인기 여성복, 가방, 신발, 액세서리를 만나보세요. 신상품과 세일 상품을 합리적인 가격으로 제공합니다."
+        canonical={typeof window !== 'undefined' ? window.location.origin + '/' : undefined}
+        ogImage="/lazyjane-icon.svg"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'LazyJane',
+          url: typeof window !== 'undefined' ? window.location.origin : undefined,
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: `${typeof window !== 'undefined' ? window.location.origin : ''}/search?q={search_term_string}`,
+            'query-input': 'required name=search_term_string'
+          }
+        }}
+      />
       <Hero />
       
       <section className="home-section">

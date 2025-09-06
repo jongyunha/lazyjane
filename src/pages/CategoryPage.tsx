@@ -6,6 +6,7 @@ import { ProductGrid } from '../components/Product/ProductGrid';
 import { mockProducts } from '../data/products';
 import { useCart } from '../contexts/CartContext';
 import './CategoryPage.css';
+import { SEO } from '../components/Common/SEO';
 
 type SortOption = 'recommended' | 'price-asc' | 'price-desc' | 'rating-desc' | 'newest';
 
@@ -205,6 +206,17 @@ export const CategoryPage: React.FC = () => {
   return (
     <div className="category-page">
       <div className="container">
+        <SEO
+          title={`${categoryLabel} - LazyJane`}
+          description={`${categoryLabel} 카테고리 상품 목록. 색상/사이즈/가격으로 필터링하고 정렬해 보세요.`}
+          canonical={typeof window !== 'undefined' ? `${window.location.origin}/${activeCategory}` : undefined}
+          structuredData={{
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: `${categoryLabel} - LazyJane`,
+            url: typeof window !== 'undefined' ? `${window.location.origin}/${activeCategory}` : undefined
+          }}
+        />
         <nav className="breadcrumb">
           <Link to="/" className="breadcrumb-link">{t('navigation.home')}</Link>
           <span className="breadcrumb-sep">/</span>
