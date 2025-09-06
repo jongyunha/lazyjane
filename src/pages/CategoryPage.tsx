@@ -55,6 +55,15 @@ export const CategoryPage: React.FC = () => {
     sizes: false,
   });
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  // Lock body scroll when drawer open
+  React.useEffect(() => {
+    if (isMobileFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileFilterOpen]);
 
   React.useEffect(() => {
     setSearch('');
