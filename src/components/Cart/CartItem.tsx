@@ -4,6 +4,7 @@ import { Minus, Plus, X } from 'lucide-react';
 import { useCart } from '../../contexts/CartContext';
 import type { CartItem as CartItemType } from '../../contexts/CartContext';
 import './CartItem.css';
+import { useTranslation } from 'react-i18next';
 
 interface CartItemProps {
   item: CartItemType;
@@ -11,6 +12,7 @@ interface CartItemProps {
 
 export const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const { removeItem, updateQuantity } = useCart();
+  const { t, i18n } = useTranslation();
 
   const handleQuantityChange = (newQuantity: number) => {
     if (newQuantity < 1) {
@@ -21,7 +23,8 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
   };
 
   const formatPrice = (price: number) => {
-    return `${price.toLocaleString('ko-KR')}원`;
+    if (i18n.language === 'ko') return `${price.toLocaleString('ko-KR')}원`;
+    return `$${Math.floor(price / 1300).toLocaleString('en-US')}`;
   };
 
   const subtotal = item.price * item.quantity;
@@ -34,6 +37,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
             src={item.image}
             alt={item.name}
             className="item-image"
+            loading="lazy"
           />
         </Link>
       </div>
@@ -47,9 +51,9 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
           </h3>
           
           <div className="item-options">
-            <span className="item-option">Color: {item.selectedColor}</span>
+            <span className="item-option">{t('cart.item.color')}: {item.selectedColor}</span>
             {item.selectedSize && (
-              <span className="item-option">Size: {item.selectedSize}</span>
+              <span className="item-option">{t('cart.item.size')}: {item.selectedSize}</span>
             )}
           </div>
 
@@ -68,7 +72,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
             <button
               className="quantity-btn"
               onClick={() => handleQuantityChange(item.quantity - 1)}
-              aria-label="Decrease quantity"
+              aria-label={t('cart.item.decreaseQty')}
             >
               <Minus size={16} />
             </button>
@@ -78,7 +82,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
             <button
               className="quantity-btn"
               onClick={() => handleQuantityChange(item.quantity + 1)}
-              aria-label="Increase quantity"
+              aria-label={t('cart.item.increaseQty')}
             >
               <Plus size={16} />
             </button>
@@ -91,7 +95,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
           <button
             className="remove-btn"
             onClick={() => removeItem(item.id)}
-            aria-label="Remove item from cart"
+            aria-label={t('cart.item.remove')}
           >
             <X size={18} />
           </button>

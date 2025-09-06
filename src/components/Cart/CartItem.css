@@ -7,6 +7,7 @@
   border-radius: 12px;
   background: white;
   transition: box-shadow 0.2s ease;
+  position: relative;
 }
 
 .cart-item:hover {
@@ -60,6 +61,16 @@
 .item-option {
   font-size: 0.9rem;
   color: var(--text-secondary);
+}
+
+.item-options .item-option + .item-option::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border-color);
+  margin: 0 0.5rem;
 }
 
 .item-price-section {
@@ -153,59 +164,38 @@
 /* Mobile responsive */
 @media (max-width: 768px) {
   .cart-item {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    align-items: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: start;
+    text-align: left;
   }
 
-  .cart-item-image {
-    align-self: center;
-  }
+  .cart-item-image { align-self: start; }
 
-  .item-image {
-    width: 120px;
-    height: 120px;
-  }
+  .item-image { width: 96px; height: 96px; }
 
-  .cart-item-details {
-    text-align: center;
-    width: 100%;
-  }
+  .cart-item-details { width: 100%; }
 
   .item-info {
     margin-bottom: 1rem;
   }
 
-  .item-options {
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
+  .item-options { justify-content: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
 
-  .item-price-section {
-    justify-content: center;
-  }
+  .item-price-section { justify-content: flex-start; }
 
-  .item-actions {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-    width: 100%;
-  }
+  .item-actions { flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; width: 100%; }
 
   .quantity-controls {
     order: 1;
   }
 
-  .item-subtotal {
-    order: 2;
-    text-align: center;
-    min-width: auto;
-    font-size: 1.3rem;
-  }
+  .item-subtotal { order: 2; text-align: right; min-width: auto; font-size: 1.3rem; margin-left: auto; }
 
-  .remove-btn {
-    order: 3;
-  }
+  .remove-btn { order: 3; position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; }
+
+  .quantity-btn { width: 40px; height: 40px; }
+  .quantity-display { min-width: 2.25rem; font-size: 1rem; }
 }

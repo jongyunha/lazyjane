@@ -4,11 +4,13 @@ import { useCart } from '../contexts/CartContext';
 import { CartItem } from '../components/Cart/CartItem';
 import { CartSummary } from '../components/Cart/CartSummary';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import './CartPage.css';
 
 export const CartPage: React.FC = () => {
-  const { state, clearCart } = useCart();
+  const { state } = useCart();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   if (state.items.length === 0) {
     return (
@@ -17,23 +19,23 @@ export const CartPage: React.FC = () => {
           <button 
             className="back-button"
             onClick={() => navigate('/')}
-            aria-label="Go back"
+            aria-label={t('cart.page.continueShopping')}
           >
             <ArrowLeft size={20} />
-            <span>Continue Shopping</span>
+            <span>{t('cart.page.continueShopping')}</span>
           </button>
 
           <div className="empty-cart">
             <div className="empty-cart-icon">
               <ShoppingBag size={80} />
             </div>
-            <h2>Your cart is empty</h2>
-            <p>Looks like you haven't added any items to your cart yet.</p>
+            <h2>{t('cart.page.emptyTitle')}</h2>
+            <p>{t('cart.page.emptyDesc')}</p>
             <button 
               className="btn btn-primary btn-lg"
               onClick={() => navigate('/')}
             >
-              Start Shopping
+              {t('cart.page.startShopping')}
             </button>
           </div>
         </div>
@@ -45,31 +47,14 @@ export const CartPage: React.FC = () => {
     <div className="cart-page">
       <div className="container">
         <div className="cart-header">
-          <div className="cart-nav">
+          <div className="cart-header-main">
             <button 
-              className="back-button"
+              className="back-icon-button"
               onClick={() => navigate('/')}
-              aria-label="Go back"
+              aria-label={t('cart.page.continueShopping')}
+              title={t('cart.page.continueShopping') as string}
             >
               <ArrowLeft size={20} />
-              <span>Continue Shopping</span>
-            </button>
-          </div>
-          
-          <div className="cart-header-main">
-            <div className="cart-title-section">
-              <h1 className="cart-title">Shopping Cart</h1>
-              <p className="cart-subtitle">
-                {state.itemCount} {state.itemCount === 1 ? 'item' : 'items'} in your cart
-              </p>
-            </div>
-
-            <button 
-              className="clear-cart-button"
-              onClick={clearCart}
-              aria-label="Clear all items from cart"
-            >
-              Clear Cart
             </button>
           </div>
         </div>

@@ -28,6 +28,52 @@ const resources = {
         total: "총합",
         currency: "원"
       },
+      cart: {
+        page: {
+          title: "장바구니",
+          continueShopping: "쇼핑 계속하기",
+          clearCart: "전체 비우기",
+          clearConfirm: "장바구니의 모든 상품을 삭제할까요?",
+          itemsCount: "장바구니에 {{count}}개 상품",
+          itemsCountShort: "{{count}}개",
+          emptyTitle: "장바구니가 비어 있어요",
+          emptyDesc: "아직 담긴 상품이 없습니다.",
+          startShopping: "쇼핑 시작하기"
+        },
+        item: {
+          color: "색상",
+          size: "사이즈",
+          decreaseQty: "수량 감소",
+          increaseQty: "수량 증가",
+          remove: "상품 제거"
+        },
+        summary: {
+          orderSummary: "주문 요약",
+          subtotal: "소계 ({{count}}개)",
+          shipping: "배송비",
+          free: "무료",
+          freeShippingNotice: "5만원 이상 주문 시 무료배송",
+          freeShippingRemain: "무료배송까지 {{amount}} 남았어요!",
+          total: "합계",
+          proceedCheckout: "결제하기",
+          badges: {
+            securePayment: "안전한 결제",
+            fastDelivery: "빠른 배송",
+            easyPay: "간편결제 지원"
+          },
+          paymentMethodsLabel: "결제 수단",
+          methods: {
+            creditCard: "신용/체크카드",
+            kakaoPay: "카카오페이",
+            naverPay: "네이버페이",
+            bankTransfer: "무통장입금"
+          },
+          mobile: {
+            totalLabel: "합계",
+            checkout: "결제하기"
+          }
+        }
+      },
       home: {
         hero: {
           title: "새로운 컬렉션",
@@ -92,6 +138,52 @@ const resources = {
         price: "Price",
         total: "Total",
         currency: "$"
+      },
+      cart: {
+        page: {
+          title: "Shopping Cart",
+          continueShopping: "Continue Shopping",
+          clearCart: "Clear Cart",
+          clearConfirm: "Remove all items from your cart?",
+          itemsCount: "{{count}} item(s) in your cart",
+          itemsCountShort: "({{count}})",
+          emptyTitle: "Your cart is empty",
+          emptyDesc: "Looks like you haven't added any items yet.",
+          startShopping: "Start Shopping"
+        },
+        item: {
+          color: "Color",
+          size: "Size",
+          decreaseQty: "Decrease quantity",
+          increaseQty: "Increase quantity",
+          remove: "Remove item"
+        },
+        summary: {
+          orderSummary: "Order Summary",
+          subtotal: "Subtotal ({{count}} items)",
+          shipping: "Shipping",
+          free: "FREE",
+          freeShippingNotice: "Free shipping on orders over 50,000원",
+          freeShippingRemain: "Add {{amount}} more for free shipping!",
+          total: "Total",
+          proceedCheckout: "Proceed to Checkout",
+          badges: {
+            securePayment: "Secure Payment",
+            fastDelivery: "Fast Delivery",
+            easyPay: "Easy Pay Supported"
+          },
+          paymentMethodsLabel: "We accept",
+          methods: {
+            creditCard: "Credit/Debit Card",
+            kakaoPay: "KakaoPay",
+            naverPay: "NaverPay",
+            bankTransfer: "Bank Transfer"
+          },
+          mobile: {
+            totalLabel: "Total",
+            checkout: "Checkout"
+          }
+        }
       },
       home: {
         hero: {
