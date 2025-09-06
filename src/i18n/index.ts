@@ -37,6 +37,33 @@ const resources = {
         featured: "인기 상품",
         newArrivals: "신상품",
         trending: "트렌딩"
+      },
+      category: {
+        results: "{{count}}개 상품",
+        searchPlaceholder: "카테고리 내 검색",
+        sort: "정렬",
+        sortOptions: {
+          recommended: "추천순",
+          priceAsc: "가격 낮은순",
+          priceDesc: "가격 높은순",
+          ratingDesc: "평점 높은순",
+          newest: "신상품순"
+        },
+        filters: "필터",
+        clearAll: "전체 초기화",
+        price: "가격",
+        min: "최소",
+        max: "최대",
+        colors: "색상",
+        sizes: "사이즈",
+        prev: "이전",
+        next: "다음",
+        pageOf: "{{page}} / {{total}} 페이지",
+        mobile: {
+          openFilters: "필터 열기",
+          apply: "적용",
+          close: "닫기"
+        }
       }
     }
   },
@@ -75,6 +102,33 @@ const resources = {
         featured: "Featured",
         newArrivals: "New Arrivals",
         trending: "Trending"
+      },
+      category: {
+        results: "{{count}} items",
+        searchPlaceholder: "Search within category",
+        sort: "Sort",
+        sortOptions: {
+          recommended: "Recommended",
+          priceAsc: "Price: Low to High",
+          priceDesc: "Price: High to Low",
+          ratingDesc: "Rating",
+          newest: "Newest"
+        },
+        filters: "Filters",
+        clearAll: "Clear all",
+        price: "Price",
+        min: "Min",
+        max: "Max",
+        colors: "Colors",
+        sizes: "Sizes",
+        prev: "Prev",
+        next: "Next",
+        pageOf: "Page {{page}} of {{total}}",
+        mobile: {
+          openFilters: "Open filters",
+          apply: "Apply",
+          close: "Close"
+        }
       }
     }
   }

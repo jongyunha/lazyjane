@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductDetail } from './pages/ProductDetail';
 import { CartPage } from './pages/CartPage';
 import { CartProvider, useCart } from './contexts/CartContext';
+import { CategoryPage } from './pages/CategoryPage';
 
 const AppContent: React.FC = () => {
   const { state } = useCart();
@@ -31,6 +32,7 @@ const AppContent: React.FC = () => {
       <Layout cartItemCount={state.itemCount}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/:category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>

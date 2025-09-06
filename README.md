@@ -28,19 +28,31 @@ A modern e-commerce website built with React, TypeScript, and Vite.
   - Integration with product detail page
   - Real-time cart count in header
 
+- [x] **Category/Product Listing Page** 🆕
+  - Routing for categories: `/women`, `/bags`, `/shoes`, `/accessories`, `/sale`
+  - Product filtering by category
+  - Search within category
+  - Sort options (price, rating, newest, recommended)
+  - Filter sidebar: price range, colors, sizes
+  - Active filter chips with one-click removal and clear all
+  - Breadcrumb navigation
+  - Pagination
+  - Mobile: sticky header controls, filter drawer with apply/close
+  - i18n for all category UI strings (ko/en)
+
 ### 🚧 In Progress
 - [ ] Currently no active development
 
 ### 📋 TODO List (Priority Order)
 
 #### 📱 **1. Category/Product Listing Page** (High Priority)
-- [ ] Category page routing (`/women`, `/bags`, `/shoes`, etc.)
-- [ ] Product filtering by category
-- [ ] Sort options (price, popularity, newest)
-- [ ] Product grid layout with pagination
-- [ ] Filter sidebar (price range, colors, sizes)
-- [ ] Search within category
-- [ ] Breadcrumb navigation
+- [x] Category page routing (`/women`, `/bags`, `/shoes`, etc.)
+- [x] Product filtering by category
+- [x] Sort options (price, rating, newest, recommended)
+- [x] Product grid layout with pagination
+- [x] Filter sidebar (price range, colors, sizes)
+- [x] Search within category
+- [x] Breadcrumb navigation
 
 #### 🔍 **2. Search Functionality** (Medium Priority)
 - [ ] Search page (`/search`)
@@ -114,6 +126,17 @@ npm run build
 - **Build Tool**: Vite
 - **Package Manager**: npm/yarn
 
+## 📝 Changelog
+
+- 2025-09-06
+  - Added Category/Product listing pages with filters, sorting, pagination, and breadcrumb
+  - Implemented mobile filter drawer with apply/close and responsive control bar
+  - Unified UI styling for search/sort/filter; added active filter chips and clear-all
+  - Converted header navigation to client-side routing (`Link`)
+  - Added i18n strings for category UI (ko/en)
+  - Fixed price filter input showing 0 when cleared; now uses empty state correctly
+  - Fixed active filter bar rendering stray 0 when arrays were empty
+
 ## 📁 Project Structure
 
 ```
@@ -141,4 +164,4 @@ src/
 
 ---
 
-*Last updated: 2025-01-08*
+*Last updated: 2025-09-06*

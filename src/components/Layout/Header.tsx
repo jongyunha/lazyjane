@@ -38,17 +38,17 @@ export const Header: React.FC<HeaderProps> = ({ cartItemCount = 0 }) => {
 
           {/* Logo */}
           <div className="logo">
-            <a href="/" className="logo-text">
+            <Link to="/" className="logo-text">
               LazyJane
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="desktop-nav">
             {navigation.map((item) => (
-              <a key={item.key} href={item.href} className="nav-link">
+              <Link key={item.key} to={item.href} className="nav-link">
                 {t(`navigation.${item.key}`)}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -96,9 +96,9 @@ export const Header: React.FC<HeaderProps> = ({ cartItemCount = 0 }) => {
         {/* Mobile Navigation */}
         <nav className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
           <div className="mobile-nav-header">
-            <a href="/" className="logo-text">
+            <Link to="/" className="logo-text">
               LazyJane
-            </a>
+            </Link>
             <button
               className="mobile-nav-close"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -110,14 +110,14 @@ export const Header: React.FC<HeaderProps> = ({ cartItemCount = 0 }) => {
           
           <div className="mobile-nav-content">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.key}
-                href={item.href}
+                to={item.href}
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t(`navigation.${item.key}`)}
-              </a>
+              </Link>
             ))}
           </div>
 
