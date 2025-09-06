@@ -114,9 +114,15 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
           </span>
         )}
         {product.isOnSale && product.originalPrice && (
-          <span className="discount">
-            {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
+          <span className="discount-pill">
+            {(() => {
+              const pct = Math.round((1 - product.price / product.originalPrice) * 100);
+              return i18n.language === 'ko' ? `${pct}% 할인` : `${pct}% OFF`;
+            })()}
           </span>
+        )}
+        {(!product.isOnSale || !product.originalPrice) && (
+          <span className="discount-pill placeholder" aria-hidden="true">00% 할인</span>
         )}
       </div>
 

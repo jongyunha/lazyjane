@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
 import { CreditCard } from 'lucide-react';
 import './CartSummary.css';
 import { useTranslation } from 'react-i18next';
+import { Modal } from '../Common/Modal';
 
 export const CartSummary: React.FC = () => {
   const { state } = useCart();
   const { t, i18n } = useTranslation();
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const formatPrice = (price: number) => {
     if (i18n.language === 'ko') return `${price.toLocaleString('ko-KR')}원`;
@@ -18,8 +20,7 @@ export const CartSummary: React.FC = () => {
   const finalTotal = subtotal + shippingFee;
 
   const handleCheckout = () => {
-    // TODO: Implement checkout functionality
-    alert('Checkout functionality will be implemented soon!');
+    setIsCheckoutOpen(true);
   };
 
   return (
@@ -85,6 +86,21 @@ export const CartSummary: React.FC = () => {
           {t('cart.summary.mobile.checkout')}
         </button>
       </div>
+
+      {/* Checkout placeholder modal */}
+      <Modal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        title={t('cart.summary.proceedCheckout') as string}
+        footer={
+          <>
+            <button className="btn btn-outline" onClick={() => setIsCheckoutOpen(false)}>{t('common.cancel')}</button>
+            <button className="btn btn-primary" onClick={() => setIsCheckoutOpen(false)}>{t('common.confirm')}</button>
+          </>
+        }
+      >
+        <p>{i18n.language === 'ko' ? '결제 기능은 곧 제공될 예정입니다.' : 'Checkout functionality will be available soon.'}</p>
+      </Modal>
     </>
   );
 };

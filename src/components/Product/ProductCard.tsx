@@ -165,6 +165,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               {formatPrice(product.originalPrice)}
             </span>
           )}
+          {product.originalPrice && (
+            <span className="discount">
+              -{Math.round((1 - product.price / product.originalPrice) * 100)}%
+            </span>
+          )}
         </div>
 
         <div className="product-sizes">

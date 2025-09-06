@@ -21,6 +21,8 @@ const resources = {
         retry: "다시 시도",
         addToCart: "장바구니에 추가",
         buyNow: "지금 구매",
+        cancel: "취소",
+        confirm: "확인",
         size: "사이즈",
         color: "색상",
         quantity: "수량",
@@ -132,6 +134,8 @@ const resources = {
         retry: "Retry",
         addToCart: "Add to Cart",
         buyNow: "Buy Now",
+        cancel: "Cancel",
+        confirm: "Confirm",
         size: "Size",
         color: "Color",
         quantity: "Quantity",
@@ -230,7 +234,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
+    lng: 'ko',
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false

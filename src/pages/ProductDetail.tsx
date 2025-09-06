@@ -7,18 +7,23 @@ import { ProductImageGallery } from '../components/Product/ProductImageGallery';
 import { ProductInfo } from '../components/Product/ProductInfo';
 import { ProductOptions } from '../components/Product/ProductOptions';
 import { ProductActions } from '../components/Product/ProductActions';
+import { Modal } from '../components/Common/Modal';
+import { useTranslation } from 'react-i18next';
 import './ProductDetail.css';
 
 export const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { addItem } = useCart();
+  const { t, i18n } = useTranslation();
   
   const product = mockProducts.find(p => p.id === id);
   
   const [selectedColor, setSelectedColor] = useState(product?.colors[0]?.id || '');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   if (!product) {
     return (
@@ -38,7 +43,8 @@ export const ProductDetail: React.FC = () => {
     
     // Check if size is required and selected
     if (!selectedSize && product.sizes.length > 1 && product.sizes[0].id !== 'onesize') {
-      alert('Please select a size');
+      setModalMessage(i18n.language === 'ko' ? '사이즈를 선택해주세요.' : 'Please select a size');
+      setModalOpen(true);
       return;
     }
     
@@ -62,7 +68,8 @@ export const ProductDetail: React.FC = () => {
     });
     
     // Show success message and optionally redirect
-    alert('Product added to cart!');
+    setModalMessage(i18n.language === 'ko' ? '장바구니에 담았습니다.' : 'Product added to cart!');
+    setModalOpen(true);
   };
 
   const handleToggleFavorite = () => {
@@ -125,6 +132,14 @@ export const ProductDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={i18n.language === 'ko' ? '알림' : 'Notice'}
+        footer={<button className="btn btn-primary" onClick={() => setModalOpen(false)}>{i18n.language === 'ko' ? '확인' : 'OK'}</button>}
+      >
+        <p>{modalMessage}</p>
+      </Modal>
     </div>
   );
 };
