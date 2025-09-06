@@ -3,6 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-md);
   padding: var(--spacing-md) 0;
+  overflow: hidden;
 }
 
 @media (min-width: 480px) {

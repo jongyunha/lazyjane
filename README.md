@@ -27,6 +27,9 @@ A modern e-commerce website built with React, TypeScript, and Vite.
   - Cart persistence (localStorage)
   - Integration with product detail page
   - Real-time cart count in header
+  - Mobile UX improvements (2-column item layout, sticky header, bottom checkout bar)
+  - Korean-friendly i18n for all cart texts
+  - Simplified header (back icon only), redesigned totals, safe-area handling (iOS)
 
 - [x] **Category/Product Listing Page** 🆕
   - Routing for categories: `/women`, `/bags`, `/shoes`, `/accessories`, `/sale`
@@ -39,6 +42,14 @@ A modern e-commerce website built with React, TypeScript, and Vite.
   - Pagination
   - Mobile: sticky header controls, filter drawer with apply/close
   - i18n for all category UI strings (ko/en)
+  - Polished controls: iconified search with clear, select styling, collapsible filters
+  - Mobile filter drawer and active filter chips
+  - Price input UX fixes (no stray 0), and empty chips no longer render 0
+### 🧩 UI Components & System
+- [x] Global Modal system (portal, ESC/BackDrop close) and ConfirmDialog
+- [x] Replaced alerts with Modal on Product Detail and Cart Summary
+- [x] Default language set to Korean (ko)
+
 
 ### 🚧 In Progress
 - [ ] Currently no active development
@@ -136,6 +147,9 @@ npm run build
   - Added i18n strings for category UI (ko/en)
   - Fixed price filter input showing 0 when cleared; now uses empty state correctly
   - Fixed active filter bar rendering stray 0 when arrays were empty
+  - Introduced global Modal & ConfirmDialog; replaced alert usage; set default language to Korean
+  - Cart page mobile redesign (sticky header, bottom checkout bar, safe-area); simplified header
+  - Product cards: fixed thumbnail height per breakpoint; unified price/discount display; ensured no horizontal overflow; ensured consistent card heights
 
 ## 📁 Project Structure
 
